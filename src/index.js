@@ -29,10 +29,12 @@ export const createFlamelinkHooks = function({ flamelinkApp }) {
             ...options,
             callback(err, res) {
               if (err) {
+                setContent(null)
                 return setError(err)
               }
 
-              setSuccess(res)
+              setError(null)
+              return setSuccess(res)
             },
           })
         }, effectResolver) // eslint-disable-line react-hooks/exhaustive-deps
@@ -47,8 +49,14 @@ export const createFlamelinkHooks = function({ flamelinkApp }) {
         useEffect(() => {
           flamelinkApp[method.module]
             .get(options)
-            .then(setSuccess)
-            .catch(setError)
+            .then(res => {
+              setError(null)
+              setSuccess(res)
+            })
+            .catch(err => {
+              setSuccess(null)
+              setError(err)
+            })
         }, effectResolver) // eslint-disable-line react-hooks/exhaustive-deps
 
         return [error, data]

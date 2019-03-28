@@ -8,13 +8,63 @@
 
 <!-- /BADGES -->
 
-**\_THIS EXAMPLE IS UNDER DEVELOPMENT AND NOT READY TO BE USED**
-
 <!-- DESCRIPTION/ -->
 
 Some Flamelink SDK functionality exposed as React Hooks
 
 <!-- /DESCRIPTION -->
+
+## Installation
+
+```bash
+npm install -S flamelink-react-hooks
+```
+
+## Usage
+
+```javascript
+import { createFlamelinkHooks } from 'flamelink-react-hooks'
+import flamelink from 'flamelink/app'
+import 'flamelink/content'
+import 'flamelink/storage'
+
+const flamelinkApp = flamelink(/* init flamelink app */)
+
+const { useContent, useContentOnce } = createFlamelinkHooks({ flamelinkApp })
+
+const YourComponent = function(props) {
+  const [error, content] = useContent({ schemaKey: 'homepage' })
+
+  if (error) {
+    return <p>Error Error Error</p>
+  }
+
+  return (
+    <section>
+      <h1>{content.title}</h1>
+      <p>{content.body}</p>
+    </section>
+  )
+}
+```
+
+## Available Hooks
+
+The following 2 hooks are currently available
+
+### useContent
+
+This hook sets up a real-time subscription for the content you want.
+
+**returns:** [error, content]
+Array with the first item an error object, otherwise it will be `null` and the second item will be the content payload - initially it will be `null`
+
+### useContentOnce
+
+This hook queries once for the content you want without setting up a real-time connection.
+
+**returns:** [error, content]
+Same as `useContent`
 
 <!-- HISTORY/ -->
 
@@ -32,7 +82,7 @@ Some Flamelink SDK functionality exposed as React Hooks
 
 These amazing people are maintaining this project:
 
-<ul><li><a href="http://jperasmus.me">JP Erasmus</a></li></ul>
+<ul><li><a href="http://jperasmus.me">JP Erasmus</a> — <a href="https://github.com/jperasmus/flamelink-react-hooks/commits?author=jperasmus" title="View the GitHub contributions of JP Erasmus on repository jperasmus/flamelink-react-hooks">view contributions</a></li></ul>
 
 <h3>Sponsors</h3>
 
@@ -40,7 +90,9 @@ No sponsors yet! Will you be the first?
 
 <h3>Contributors</h3>
 
-No contributors yet! Will you be the first?
+These amazing people have contributed code to this project:
+
+<ul><li><a href="http://jperasmus.me">JP Erasmus</a> — <a href="https://github.com/jperasmus/flamelink-react-hooks/commits?author=jperasmus" title="View the GitHub contributions of JP Erasmus on repository jperasmus/flamelink-react-hooks">view contributions</a></li></ul>
 
 <!-- /BACKERS -->
 

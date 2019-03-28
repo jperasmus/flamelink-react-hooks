@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "pack build",
+    "publish": "pack publish",
     "generate-readme": "projectz compile",
     "lint": "eslint --cache 'src/**/*.js'",
     "lint:fix": "yarn run lint --fix",
@@ -22,7 +23,9 @@
   "maintainers": [
     "JP Erasmus <jperasmus11@gmail.com> (http://jperasmus.me)"
   ],
-  "contributors": [],
+  "contributors": [
+    "JP Erasmus <jperasmus11@gmail.com> (http://jperasmus.me)"
+  ],
   "license": "ISC",
   "@pika/pack": {
     "pipeline": [
