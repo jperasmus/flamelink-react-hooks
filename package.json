@@ -1,0 +1,75 @@
+{
+  "name": "flamelink-react-hooks",
+  "version": "1.0.0",
+  "description": "Some Flamelink SDK functionality exposed as React Hooks",
+  "main": "index.js",
+  "scripts": {
+    "build": "pack build",
+    "generate-readme": "projectz compile",
+    "lint": "eslint --cache 'src/**/*.js'",
+    "lint:fix": "yarn run lint --fix",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "JP Erasmus <jperasmus11@gmail.com> (http://jperasmus.me)",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jperasmus/flamelink-react-hooks"
+  },
+  "bugs": {
+    "url": "https://github.com/jperasmus/flamelink-react-hooks/issues"
+  },
+  "maintainers": [
+    "JP Erasmus <jperasmus11@gmail.com> (http://jperasmus.me)"
+  ],
+  "contributors": [],
+  "license": "ISC",
+  "@pika/pack": {
+    "pipeline": [
+      [
+        "@pika/plugin-standard-pkg",
+        {
+          "exclude": [
+            "__tests__/**/*"
+          ]
+        }
+      ],
+      [
+        "@pika/plugin-build-node"
+      ],
+      [
+        "@pika/plugin-build-web"
+      ],
+      [
+        "@pika/plugin-build-types"
+      ]
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run generate-readme && git add README.md && lint-staged"
+    }
+  },
+  "devDependencies": {
+    "@pika/pack": "^0.3.6",
+    "@pika/plugin-build-node": "^0.3.14",
+    "@pika/plugin-build-types": "^0.3.14",
+    "@pika/plugin-build-web": "^0.3.14",
+    "@pika/plugin-standard-pkg": "^0.3.14",
+    "babel-eslint": "^10.0.1",
+    "eslint": "^5.15.3",
+    "eslint-config-prettier": "^4.1.0",
+    "eslint-plugin-jsx-a11y": "^6.2.1",
+    "eslint-plugin-prettier": "^3.0.1",
+    "eslint-plugin-react": "^7.12.4",
+    "eslint-plugin-react-hooks": "^1.5.1",
+    "husky": "^1.3.1",
+    "lint-staged": "^8.1.5",
+    "prettier": "^1.16.4",
+    "projectz": "^1.7.4"
+  },
+  "dependencies": {
+    "flamelink": "^1.0.0-alpha.6",
+    "react": "^16.8.0"
+  }
+}
