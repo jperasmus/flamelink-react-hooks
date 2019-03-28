@@ -1,11 +1,11 @@
 {
   "name": "flamelink-react-hooks",
-  "version": "1.0.0",
+  "version": "0.1.1",
   "description": "Some Flamelink SDK functionality exposed as React Hooks",
   "main": "index.js",
   "scripts": {
     "build": "pack build",
-    "publish": "pack publish",
+    "publish:latest": "pack publish",
     "generate-readme": "projectz compile",
     "lint": "eslint --cache 'src/**/*.js'",
     "lint:fix": "yarn run lint --fix",
