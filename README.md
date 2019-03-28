@@ -4,15 +4,20 @@
 
 <!-- /TITLE -->
 
+
 <!-- BADGES/ -->
 
+
+
 <!-- /BADGES -->
+
 
 <!-- DESCRIPTION/ -->
 
 Some Flamelink SDK functionality exposed as React Hooks
 
 <!-- /DESCRIPTION -->
+
 
 ## Installation
 
@@ -74,6 +79,7 @@ Same as `useContent`
 
 <!-- /HISTORY -->
 
+
 <!-- BACKERS/ -->
 
 <h2>Backers</h2>
@@ -88,13 +94,18 @@ These amazing people are maintaining this project:
 
 No sponsors yet! Will you be the first?
 
+
+
 <h3>Contributors</h3>
 
 These amazing people have contributed code to this project:
 
 <ul><li><a href="http://jperasmus.me">JP Erasmus</a> — <a href="https://github.com/jperasmus/flamelink-react-hooks/commits?author=jperasmus" title="View the GitHub contributions of JP Erasmus on repository jperasmus/flamelink-react-hooks">view contributions</a></li></ul>
 
+
+
 <!-- /BACKERS -->
+
 
 <!-- LICENSE/ -->
 
