@@ -27,6 +27,8 @@ npm install -S flamelink-react-hooks
 
 ## Usage
 
+`flamelink-react-hooks` uses the [Flamelink SDK](https://flamelink.github.io/flamelink-js-sdk/) internally, so please take a look at the [Installation & Usage sections](https://flamelink.github.io/flamelink-js-sdk/#/getting-started?id=usage) for the SDK to see how you can instantiate the `flamelinkApp` instance.
+
 ```javascript
 import { createFlamelinkHooks } from 'flamelink-react-hooks'
 import flamelink from 'flamelink/app'
