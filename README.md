@@ -4,20 +4,15 @@
 
 <!-- /TITLE -->
 
-
 <!-- BADGES/ -->
 
-
-
 <!-- /BADGES -->
-
 
 <!-- DESCRIPTION/ -->
 
 Some Flamelink SDK functionality exposed as React Hooks
 
 <!-- /DESCRIPTION -->
-
 
 ## Installation
 
@@ -57,7 +52,7 @@ const YourComponent = function(props) {
 
 ## Available Hooks
 
-The following 2 hooks are currently available
+The following hooks are currently available
 
 ### useContent
 
@@ -73,6 +68,34 @@ This hook queries once for the content you want without setting up a real-time c
 **returns:** [error, content]
 Same as `useContent`
 
+### useNav
+
+This hook sets up a real-time subscription for the navigation you want.
+
+**returns:** [error, navigation]
+Array with the first item an error object, otherwise it will be `null` and the second item will be the navigation payload - initially it will be `null`
+
+### useNavOnce
+
+This hook queries once for the navigation you want without setting up a real-time connection.
+
+**returns:** [error, navigation]
+Same as `useNav`
+
+### useUsers
+
+This hook sets up a real-time subscription for the users you want.
+
+**returns:** [error, users]
+Array with the first item an error object, otherwise it will be `null` and the second item will be the users payload - initially it will be `null`
+
+### useUsersOnce
+
+This hook queries once for the users you want without setting up a real-time connection.
+
+**returns:** [error, users]
+Same as `useUsers`
+
 <!-- HISTORY/ -->
 
 <h2>History</h2>
@@ -80,7 +103,6 @@ Same as `useContent`
 <a href="https://github.com/jperasmus/flamelink-react-hooks/releases">Discover the release history by heading on over to the releases page.</a>
 
 <!-- /HISTORY -->
-
 
 <!-- BACKERS/ -->
 
@@ -96,18 +118,13 @@ These amazing people are maintaining this project:
 
 No sponsors yet! Will you be the first?
 
-
-
 <h3>Contributors</h3>
 
 These amazing people have contributed code to this project:
 
 <ul><li><a href="http://jperasmus.me">JP Erasmus</a> — <a href="https://github.com/jperasmus/flamelink-react-hooks/commits?author=jperasmus" title="View the GitHub contributions of JP Erasmus on repository jperasmus/flamelink-react-hooks">view contributions</a></li></ul>
 
-
-
 <!-- /BACKERS -->
-
 
 <!-- LICENSE/ -->
 
