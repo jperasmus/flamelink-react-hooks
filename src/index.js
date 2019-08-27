@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import React from 'react'
 
 export const createFlamelinkHooks = function({ flamelinkApp }) {
   if (!flamelinkApp) {
@@ -9,6 +9,14 @@ export const createFlamelinkHooks = function({ flamelinkApp }) {
     {
       module: 'content',
       name: 'useContent',
+    },
+    {
+      module: 'nav',
+      name: 'useNav',
+    },
+    {
+      module: 'users',
+      name: 'useUsers',
     },
   ]
 
@@ -21,15 +29,15 @@ export const createFlamelinkHooks = function({ flamelinkApp }) {
           )
         }
 
-        const [error, setError] = useState(null)
-        const [data, setSuccess] = useState(null)
+        const [error, setError] = React.useState(null)
+        const [data, setSuccess] = React.useState(null)
 
-        useEffect(() => {
+        React.useEffect(() => {
           return flamelinkApp[method.module].subscribe({
             ...options,
             callback(err, res) {
               if (err) {
-                setContent(null)
+                setSuccess(null)
                 return setError(err)
               }
 
@@ -43,10 +51,10 @@ export const createFlamelinkHooks = function({ flamelinkApp }) {
       },
 
       [`${method.name}Once`](options, effectResolver = [options]) {
-        const [error, setError] = useState(null)
-        const [data, setSuccess] = useState(null)
+        const [error, setError] = React.useState(null)
+        const [data, setSuccess] = React.useState(null)
 
-        useEffect(() => {
+        React.useEffect(() => {
           flamelinkApp[method.module]
             .get(options)
             .then(res => {
