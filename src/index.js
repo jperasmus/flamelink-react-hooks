@@ -1,24 +1,24 @@
 import React from 'react'
 
-export const createFlamelinkHooks = function({ flamelinkApp }) {
+const apiMethods = [
+  {
+    module: 'content',
+    name: 'useContent',
+  },
+  {
+    module: 'nav',
+    name: 'useNav',
+  },
+  {
+    module: 'users',
+    name: 'useUsers',
+  },
+]
+
+export function createFlamelinkHooks({ flamelinkApp }) {
   if (!flamelinkApp) {
     throw new Error('Please provide a "flamelinkApp" instance')
   }
-
-  const apiMethods = [
-    {
-      module: 'content',
-      name: 'useContent',
-    },
-    {
-      module: 'nav',
-      name: 'useNav',
-    },
-    {
-      module: 'users',
-      name: 'useUsers',
-    },
-  ]
 
   return apiMethods.reduce((api, method) => {
     return Object.assign(api, {
@@ -29,45 +29,35 @@ export const createFlamelinkHooks = function({ flamelinkApp }) {
           )
         }
 
-        const [error, setError] = React.useState(null)
-        const [data, setSuccess] = React.useState(null)
+        const [state, setState] = React.useState({ error: null, data: null })
 
         React.useEffect(() => {
           return flamelinkApp[method.module].subscribe({
             ...options,
-            callback(err, res) {
-              if (err) {
-                setSuccess(null)
-                return setError(err)
-              }
-
-              setError(null)
-              return setSuccess(res)
+            callback(error, data = null) {
+              return setState({ error, data })
             },
           })
         }, effectResolver) // eslint-disable-line react-hooks/exhaustive-deps
 
-        return [error, data]
+        return [state.error, state.data]
       },
 
       [`${method.name}Once`](options, effectResolver = [options]) {
-        const [error, setError] = React.useState(null)
-        const [data, setSuccess] = React.useState(null)
+        const [state, setState] = React.useState({ error: null, data: null })
 
         React.useEffect(() => {
-          flamelinkApp[method.module]
-            .get(options)
-            .then(res => {
-              setError(null)
-              setSuccess(res)
-            })
-            .catch(err => {
-              setSuccess(null)
-              setError(err)
-            })
+          ;(async () => {
+            try {
+              const data = await flamelinkApp[method.module].get(options)
+              return setState({ error: null, data })
+            } catch (error) {
+              return setState({ error, data: null })
+            }
+          })()
         }, effectResolver) // eslint-disable-line react-hooks/exhaustive-deps
 
-        return [error, data]
+        return [state.error, state.data]
       },
     })
   }, {})
