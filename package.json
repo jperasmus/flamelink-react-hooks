@@ -4,8 +4,8 @@
   "description": "Some Flamelink SDK functionality exposed as React Hooks",
   "main": "index.js",
   "scripts": {
-    "build": "pack build",
-    "publish:latest": "pack publish",
+    "build": "pika build",
+    "publish:latest": "pika publish",
     "generate-readme": "projectz compile",
     "lint": "eslint --cache 'src/**/*.js'",
     "lint:fix": "yarn run lint --fix",
@@ -54,24 +54,27 @@
     }
   },
   "devDependencies": {
-    "@pika/pack": "^0.5.0",
-    "@pika/plugin-build-node": "^0.6.0",
-    "@pika/plugin-build-types": "^0.6.0",
-    "@pika/plugin-build-web": "^0.6.0",
-    "@pika/plugin-standard-pkg": "^0.6.0",
-    "babel-eslint": "^10.0.3",
-    "eslint": "^6.2.2",
-    "eslint-config-prettier": "^6.1.0",
-    "eslint-plugin-jsx-a11y": "^6.2.3",
-    "eslint-plugin-prettier": "^3.1.0",
-    "eslint-plugin-react": "^7.14.3",
-    "eslint-plugin-react-hooks": "^2.0.1",
-    "husky": "^3.0.4",
-    "lint-staged": "^9.2.5",
-    "prettier": "^1.18.2",
-    "projectz": "^1.7.4"
+    "@pika/pack": "0.5.0",
+    "@pika/plugin-build-node": "0.8.1",
+    "@pika/plugin-build-types": "0.8.1",
+    "@pika/plugin-build-web": "0.8.1",
+    "@pika/plugin-standard-pkg": "0.8.1",
+    "@types/react": "16.9.17",
+    "babel-eslint": "10.0.3",
+    "eslint": "6.8.0",
+    "eslint-config-prettier": "6.9.0",
+    "eslint-plugin-jsx-a11y": "6.2.3",
+    "eslint-plugin-prettier": "3.1.2",
+    "eslint-plugin-react": "7.17.0",
+    "eslint-plugin-react-hooks": "2.3.0",
+    "flamelink": "1.0.0-alpha.28",
+    "husky": "4.0.9",
+    "lint-staged": "9.5.0",
+    "prettier": "1.19.1",
+    "projectz": "1.19.0",
+    "react": "16.12.0"
   },
-  "dependencies": {
+  "peerDependencies": {
     "flamelink": "^1.0.0-alpha.25",
     "react": "^16.8.0"
   }
